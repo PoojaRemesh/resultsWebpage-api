@@ -123,7 +123,7 @@ public class ScheduleService {
         if(schedule.getScheduleType().isBlank() || schedule.getScheduleType().isEmpty()){
             throw new BlankValueException("Schedule Type cannot be blank");
         }
-        if(schedule.getScheduleName().isBlank() ||schedule.getScheduleName().isEmpty()  ){
+        if(schedule.getScheduleName().isBlank() || schedule.getScheduleName().isEmpty()){
             throw new BlankValueException("Schedule Name cannot be blank");
         }
         if(schedule.getSubjectSchedule().isEmpty()){
@@ -136,7 +136,7 @@ public class ScheduleService {
                 throw new BlankValueException("Schedule Code cannot be blank");
             }
             if(s.getDate().getDayOfWeek().equals(DayOfWeek.SUNDAY)){
-                throw new InvalidValueException("This day is a Sunday. Please enter a working Day");
+                throw new InvalidValueException("Exams/test cannot be scheduled on Sundays. Please enter a working Day");
             }
             if(!(s.getTime().isAfter(LocalTime.of(9,0)) && s.getTime().isBefore(LocalTime.of(9,0)) )){
                 throw new InvalidValueException("Please enter a time between 9AM and 4PM");
